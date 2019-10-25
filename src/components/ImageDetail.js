@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image } from "react-native"
 const ImageDetail = ({ imageSrc, title, score }) => {
   return (
     <View>
-      <Image source={imageSrc}></Image>
+      <Image source={imageSrc} style={{ width: "100%" }}></Image>
       <Text>{title}</Text>
       <Text>Image score - {score}</Text>
     </View>
