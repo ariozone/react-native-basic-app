@@ -5,7 +5,7 @@ const HomeScreen = ({ navigation }) => {
   const navigate = address => navigation.navigate(address)
   return (
     <View>
-      <Text style={styles.text}>Hello World!</Text>
+      <Text style={styles.text}>This is Ario's App</Text>
       <Button
         title='Go to Components Demo'
         onPress={() => {
