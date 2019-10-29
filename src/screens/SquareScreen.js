@@ -3,20 +3,21 @@ import { View, Text, Button, StyleSheet } from "react-native"
 import ColorCounter from "../components/ColorCounter"
 
 const reducer = (state, action) => {
-  switch (action.color) {
-    case "red":
-      return state.red + action.amount > 255 || state.red + action.amount < 0
+  switch (action.type) {
+    case "changeRed":
+      return state.red + action.payload > 255 || state.red + action.payload < 0
         ? state
-        : { ...state, red: state.red + action.amount }
-    case "green":
-      return state.green + action.amount > 255 ||
-        state.green + action.amount < 0
+        : { ...state, red: state.red + action.payload }
+    case "changeGreen":
+      return state.green + action.payload > 255 ||
+        state.green + action.payload < 0
         ? state
-        : { ...state, green: state.green + action.amount }
-    case "blue":
-      return state.blue + action.amount > 255 || state.blue + action.amount < 0
+        : { ...state, green: state.green + action.payload }
+    case "changeBlue":
+      return state.blue + action.payload > 255 ||
+        state.blue + action.payload < 0
         ? state
-        : { ...state, blue: state.blue + action.amount }
+        : { ...state, blue: state.blue + action.payload }
     default:
       return state
   }
@@ -30,23 +31,29 @@ const SquareScreen = () => {
     <View>
       <ColorCounter
         color='Red'
-        onIncrease={() => dispatch({ amount: CHANGE_AMOUNT, color: "red" })}
+        onIncrease={() =>
+          dispatch({ payload: CHANGE_AMOUNT, type: "changeRed" })
+        }
         onDecrease={() =>
-          dispatch({ amount: -1 * CHANGE_AMOUNT, color: "red" })
+          dispatch({ payload: -1 * CHANGE_AMOUNT, type: "changeRed" })
         }
       ></ColorCounter>
       <ColorCounter
         color='Green'
-        onIncrease={() => dispatch({ amount: CHANGE_AMOUNT, color: "green" })}
+        onIncrease={() =>
+          dispatch({ payload: CHANGE_AMOUNT, type: "changeGreen" })
+        }
         onDecrease={() =>
-          dispatch({ amount: -1 * CHANGE_AMOUNT, color: "green" })
+          dispatch({ payload: -1 * CHANGE_AMOUNT, type: "changeGreen" })
         }
       ></ColorCounter>
       <ColorCounter
         color='Blue'
-        onIncrease={() => dispatch({ amount: CHANGE_AMOUNT, color: "blue" })}
+        onIncrease={() =>
+          dispatch({ payload: CHANGE_AMOUNT, type: "changeBlue" })
+        }
         onDecrease={() =>
-          dispatch({ amount: -1 * CHANGE_AMOUNT, color: "blue" })
+          dispatch({ payload: -1 * CHANGE_AMOUNT, type: "changeBlue" })
         }
       ></ColorCounter>
       <View
