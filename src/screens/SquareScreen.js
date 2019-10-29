@@ -1,48 +1,39 @@
-import React, { useState } from "react"
+import React, { useReducer } from "react"
 import { View, Text, Button, StyleSheet } from "react-native"
 import ColorCounter from "../components/ColorCounter"
 
-const SquareScreen = () => {
-  const [red, setRed] = useState(0)
-  const [green, setGreen] = useState(0)
-  const [blue, setBlue] = useState(0)
-
-  const CHANGE_AMOUNT = 45
-
-  const setColor = (color, change) => {
-    switch (color) {
-      case "red":
-        red + change > 255 || red + change < 0 ? null : setRed(red + change)
-        return
-      case "green":
-        green + change > 255 || green + change < 0
-          ? null
-          : setGreen(green + change)
-        return
-      case "blue":
-        blue + change > 255 || blue + change < 0 ? null : setBlue(blue + change)
-        return
+const reducer = (state, action) => {
+  switch(action.color) {
+    case 'red':
+      return {...state, red: state.red + action.amount}
+    case 'green':
+      return {...state, green: state.green + action.amount}
+    case 'blue':
+      return {...state, blue: state.blue + action.amount}
       default:
-        return
-    }
+        return state
   }
+}
+const SquareScreen = () => {
+const [state, despatch] = useReducer(reducer, {red: 0, green: 0, blue: 0})
+  const CHANGE_AMOUNT = 15
 
   return (
     <View>
       <ColorCounter
         color='Red'
-        onIncrease={() => setColor("red", CHANGE_AMOUNT)}
-        onDecrease={() => setColor("red", CHANGE_AMOUNT * -1)}
+        onIncrease={() => }
+        onDecrease={() => }
       ></ColorCounter>
       <ColorCounter
         color='Green'
-        onIncrease={() => setColor("green", CHANGE_AMOUNT)}
-        onDecrease={() => setColor("green", CHANGE_AMOUNT * -1)}
+        onIncrease={() => }
+        onDecrease={() => }
       ></ColorCounter>
       <ColorCounter
         color='Blue'
-        onIncrease={() => setColor("blue", CHANGE_AMOUNT)}
-        onDecrease={() => setColor("blue", CHANGE_AMOUNT * -1)}
+        onIncrease={() => }
+        onDecrease={() =>  }
       ></ColorCounter>
       <View
         style={{
