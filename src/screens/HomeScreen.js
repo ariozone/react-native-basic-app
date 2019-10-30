@@ -22,13 +22,13 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => {
           navigate("Image")
         }}
-        title='Go to Image Screen'
+        title='Go to Image Demo'
       ></Button>
       <Button
         onPress={() => {
           navigate("Counter")
         }}
-        title='Go to counter screen'
+        title='Go to Counter Demo'
       />
       <Button
         onPress={() => navigate("Color")}
@@ -40,11 +40,8 @@ const HomeScreen = ({ navigation }) => {
         }}
         title='Go to Square demo'
       ></Button>
-      <Button
-        title='Go to Text Screen'
-        onPress={() => navigate("Text")}
-      ></Button>
-      <Button title='Go to Box Screen' onPress={() => navigate("Box")}></Button>
+      <Button title='Go to Text Demo' onPress={() => navigate("Text")}></Button>
+      <Button title='Go to Box Demo' onPress={() => navigate("Box")}></Button>
     </View>
   )
 }
