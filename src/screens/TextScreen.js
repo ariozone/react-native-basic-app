@@ -5,7 +5,7 @@ const TextScreen = () => {
   const [text, setText] = useState("")
   return (
     <View>
-      <Text style={styles.text}>Enter Name: </Text>
+      <Text style={styles.text}>Enter Password: </Text>
       <TextInput
         style={styles.input}
         autoCapitalize='none'
@@ -13,7 +13,12 @@ const TextScreen = () => {
         value={text}
         onChangeText={input => setText(input)}
       ></TextInput>
-      <Text style={styles.text}>My name is {text}</Text>
+
+      {text.length < 5 && (
+        <Text style={styles.text}>
+          Password must be longer than 5 characters{" "}
+        </Text>
+      )}
     </View>
   )
 }
@@ -26,6 +31,6 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 30
   },
-  text: { fontSize: 30 }
+  text: { fontSize: 20, margin: 20 }
 })
 export default TextScreen
