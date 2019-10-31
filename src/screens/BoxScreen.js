@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   viewStyle: {
     borderWidth: 5,
     borderColor: "black",
-    alignItems: "center",
+
     height: 200
   },
   textOneStyle: {
@@ -25,7 +25,11 @@ const styles = StyleSheet.create({
   textTwoStyle: {
     borderWidth: 5,
     borderColor: "red",
-    alignSelf: "stretch"
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
   },
   textThreeStyle: {
     borderWidth: 5,
